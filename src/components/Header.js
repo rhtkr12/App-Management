@@ -1,11 +1,14 @@
 import React from 'react'
 import NavBar from '../components/NavBar'
+import { Container } from 'reactstrap'
 
 const Header = () => {
     return (
         <>
             <NavBar />
-            <div>Header</div>
+            <Container>
+                <div>Header</div>
+            </Container>
         </>
 
     )

@@ -3,18 +3,24 @@
     justify-content: space-between;
 }
 
+.searchbar img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+}
+
 .findBar {
     display: flex;
     align-items: center;
-    gap: 2px;
+    gap: 3px;
     padding: 7px 10px;
     background-color: gray;
 
 }
 
 .findIcon {
-    padding: 7px 7px;
-    border-radius: 5px;
+    padding: 8.5px 8.5px;
+    border-radius: 8px;
     background-color: rgb(76, 100, 76);
     display: flex;
     justify-content: center;

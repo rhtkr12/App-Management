@@ -11,7 +11,7 @@ const NavBar = () => {
             <div className={navBar.navBar}>
                 <Container>
                     <SearchBar />
-                    <Navbar>
+                    <Navbar className={navBar.routeBar}>
                         <NavItem className='d-flex flex-row gap-3'>{
                             AppContent.map((route, i) => (
                                 <NavLink key={i} href={route.navelink}>{route.title}</NavLink>
