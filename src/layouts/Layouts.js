@@ -6,11 +6,11 @@ import Footer from '../components/Footer'
 const Layouts = () => {
     return (
         <>
+            <Header />
             <Container>
-                <Header />
                 <Outlet />
-                <Footer />
             </Container>
+            <Footer />
         </>
     )
 }

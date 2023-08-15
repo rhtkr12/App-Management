@@ -1,0 +1,23 @@
+.searchbar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.findBar {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    padding: 7px 10px;
+    background-color: gray;
+
+}
+
+.findIcon {
+    padding: 7px 7px;
+    border-radius: 5px;
+    background-color: rgb(76, 100, 76);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
