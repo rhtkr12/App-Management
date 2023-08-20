@@ -1,6 +1,6 @@
 import React from 'react'
 import products from '../styles/products/products.module.css'
-import { Button, Card, CardBody, CardSubtitle, CardText, CardTitle, Col, Row } from 'reactstrap'
+import { Button, Card, CardBody, CardSubtitle, CardText, CardTitle, Col } from 'reactstrap'
 
 const Products = () => {
   const content = [
@@ -11,7 +11,7 @@ const Products = () => {
       />,
       title: 'Card title',
       subTitle: 'Card subtitle',
-      description: 'Some quick example text to build on the card title and make up the bulk of the card‘s content.',
+      description: "Some quick example text to build on the card title and make up the bulk of the card's content.",
       price: '$59',
       discount: ''
     },
@@ -22,7 +22,7 @@ const Products = () => {
       />,
       title: 'Card title',
       subTitle: 'Card subtitle',
-      description: 'Some quick example text to build on the card title and make up the bulk of the card‘s content.',
+      description: "Some quick example text to build on the card title and make up the bulk of the card's content.",
       price: '$59',
       discount: ''
     },
@@ -33,7 +33,7 @@ const Products = () => {
       />,
       title: 'Card title',
       subTitle: 'Card subtitle',
-      description: 'Some quick example text to build on the card title and make up the bulk of the card‘s content.',
+      description: "Some quick example text to build on the card title and make up the bulk of the card's content.",
       price: '$59',
       discount: ''
     },
@@ -44,7 +44,7 @@ const Products = () => {
       />,
       title: 'Card title',
       subTitle: 'Card subtitle',
-      description: 'Some quick example text to build on the card title and make up the bulk of the card‘s content.',
+      description: "Some quick example text to build on the card title and make up the bulk of the card's content.",
       price: '$59',
       discount: ''
     },
@@ -55,7 +55,7 @@ const Products = () => {
       />,
       title: 'Card title',
       subTitle: 'Card subtitle',
-      description: 'Some quick example text to build on the card title and make up the bulk of the card‘s content.',
+      description: "Some quick example text to build on the card title and make up the bulk of the card's content.",
       price: '$59',
       discount: ''
     },
@@ -66,7 +66,7 @@ const Products = () => {
       />,
       title: 'Card title',
       subTitle: 'Card subtitle',
-      description: 'Some quick example text to build on the card title and make up the bulk of the card‘s content.',
+      description: "Some quick example text to build on the card title and make up the bulk of the card's content.",
       price: '$59',
       discount: ''
     },
@@ -77,7 +77,7 @@ const Products = () => {
       />,
       title: 'Card title',
       subTitle: 'Card subtitle',
-      description: 'Some quick example text to build on the card title and make up the bulk of the card‘s content.',
+      description: "Some quick example text to build on the card title and make up the bulk of the card's content.",
       price: '$59',
       discount: ''
     },
@@ -88,7 +88,7 @@ const Products = () => {
       />,
       title: 'Card title',
       subTitle: 'Card subtitle',
-      description: 'Some quick example text to build on the card title and make up the bulk of the card‘s content.',
+      description: "Some quick example text to build on the card title and make up the bulk of the card's content.",
       price: '$59',
       discount: ''
     },
@@ -99,7 +99,7 @@ const Products = () => {
       />,
       title: 'Card title',
       subTitle: 'Card subtitle',
-      description: 'Some quick example text to build on the card title and make up the bulk of the card‘s content.',
+      description: "Some quick example text to build on the card title and make up the bulk of the card's content.",
       price: '$59',
       discount: ''
     },
@@ -110,7 +110,7 @@ const Products = () => {
       />,
       title: 'Card title',
       subTitle: 'Card subtitle',
-      description: 'Some quick example text to build on the card title and make up the bulk of the card‘s content.',
+      description: "Some quick example text to build on the card title and make up the bulk of the card's content.",
       price: '$59',
       discount: ''
     },
@@ -121,7 +121,7 @@ const Products = () => {
       />,
       title: 'Card title',
       subTitle: 'Card subtitle',
-      description: 'Some quick example text to build on the card title and make up the bulk of the card‘s content.',
+      description: "Some quick example text to build on the card title and make up the bulk of the card's content.",
       price: '$59',
       discount: ''
     },

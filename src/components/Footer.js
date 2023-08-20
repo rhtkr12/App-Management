@@ -6,7 +6,7 @@ const Footer = () => {
     return (
         <>
             <Container>
-                <Row className={`${footer.footer}`}>
+                <Row className={footer.footer}>
                     <div className={footer.innerFooter}>
                         <Col className='my-3'>
                             <h4>About</h4>

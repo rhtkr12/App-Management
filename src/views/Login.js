@@ -1,22 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react'
 import login from '../styles/login/login.module.css'
 import { Link } from 'react-router-dom'
 import { Container, Form, Label, Col, FormGroup, Input, Button } from 'reactstrap'
 
 const Login = () => {
+    const [user, setUser] = useState({
+        email: '',
+        password: ''
+    })
+
+    const handleCahnge = (e) => {
+        setUser({ ...user, [e.target.name]: e.target.value })
+
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log('Submitted')
+        e.target.reset()
+        console.log('Submitted Login', user)
     }
 
     return (
-        <Container className={login.login}>
-            <div>
+        <Container className='pt-2'>
+            <Link to='/'>Home</Link>
+            <div className={login.login}>
                 <Form onSubmit={handleSubmit}
                     style={{ backgroundColor: 'teal', padding: '20px', borderRadius: '7px', color: '#fff' }}>
                     <h4>Login here</h4>
-                    <FormGroup row>
+                    <FormGroup>
                         <Label
                             for="exampleEmail"
 
@@ -29,10 +40,12 @@ const Login = () => {
                                 name="email"
                                 placeholder="Email address"
                                 type="email"
+                                onChange={handleCahnge}
+                                required
                             />
                         </Col>
                     </FormGroup>
-                    <FormGroup row>
+                    <FormGroup>
                         <Label
                             for="password"
 
@@ -45,6 +58,8 @@ const Login = () => {
                                 name="password"
                                 placeholder="Password"
                                 type="password"
+                                onChange={handleCahnge}
+                                required
                             />
                         </Col>
                     </FormGroup>

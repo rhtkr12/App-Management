@@ -1,23 +1,44 @@
-import React from 'react';
-import register from '../styles/register/register.module.css'
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import register from '../styles/register/register.module.css'
 import { Input, Label, Button, Col, Container, Form, FormGroup, Row } from 'reactstrap';
 
 const Register = () => {
+    const [users, setUsers] = useState(() => {
+        return JSON.parse(localStorage.getItem('users')) || [];
+    })
+    const [user, setUser] = useState({
+        firstname: '',
+        lastname: '',
+        email: '',
+        password: '',
+        cPassword: '',
+        check: ''
+    })
+
+    const handleChange = (e) => {
+        setUser({ ...user, [e.target.name]: e.target.value })
+    }
 
     const handleSubmit = (e) => {
-        e.preventDefault()
-        console.log('Submitted')
+        e.preventDefault();
+        setUsers([...users, user]);
+        e.target.reset();
     }
+
+    useEffect(() => {
+        localStorage.setItem('users', JSON.stringify(users))
+    }, [users])
 
     return (
         <>
             <Container className={register.register}>
+                <Link to='/'>Home</Link>
                 <div className={register.innerForm}>
                     <Form onSubmit={handleSubmit}
-                        style={{ backgroundColor: 'teal', padding: '20px', borderRadius: '7px', color: '#fff' }}>
+                        style={{ width: '500px', backgroundColor: 'teal', padding: '20px', borderRadius: '7px', color: '#fff' }}>
                         <h4>Register Here</h4>
-                        <Row style={{ flexDirection: 'column', gap: 5 }}>
+                        <Row className={register.formTags}>
                             <Col className='d-flex gap-2'>
                                 <Col>
                                     <FormGroup>
@@ -29,6 +50,8 @@ const Register = () => {
                                             name="firstname"
                                             placeholder="First Name"
                                             type="text"
+                                            onChange={handleChange}
+                                            required
                                         />
                                     </FormGroup>
                                 </Col>
@@ -42,6 +65,8 @@ const Register = () => {
                                             name="lastname"
                                             placeholder="Last Name"
                                             type="text"
+                                            onChange={handleChange}
+                                            required
                                         />
                                     </FormGroup>
                                 </Col>
@@ -56,6 +81,8 @@ const Register = () => {
                                         name="email"
                                         placeholder="Email address"
                                         type="email"
+                                        onChange={handleChange}
+                                        required
                                     />
                                 </FormGroup>
                             </Col>
@@ -70,6 +97,8 @@ const Register = () => {
                                             name="password"
                                             placeholder="Password"
                                             type="password"
+                                            onChange={handleChange}
+                                            required
                                         />
                                     </FormGroup>
                                 </Col>
@@ -83,6 +112,8 @@ const Register = () => {
                                             name="cPassword"
                                             placeholder="Confirm Password"
                                             type="password"
+                                            onChange={handleChange}
+                                            required
                                         />
                                     </FormGroup>
                                 </Col>
@@ -92,13 +123,16 @@ const Register = () => {
                             <Input
                                 id="check"
                                 name="check"
+                                value='true'
                                 type="checkbox"
+                                onChange={handleChange}
+                                required
                             />
                             <Label
                                 check
                                 for="check"
                             >
-                                Accept terms & contditions.<span>*</span>
+                                Accept terms & conditions.<span>*</span>
                             </Label>
                         </FormGroup>
                         <Col className='d-flex' style={{ flexDirection: 'column' }}>
