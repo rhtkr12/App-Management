@@ -2,7 +2,7 @@ import React from 'react'
 import { Search } from 'react-feather'
 import Logo from '../../src/assets/pb-logo.jpg'
 import searchbar from '../styles/searchbar/searchbar.module.css'
-import { Input, Navbar } from 'reactstrap'
+import { Button, Input, Navbar } from 'reactstrap'
 
 const SearchBar = () => {
     return (
@@ -15,7 +15,7 @@ const SearchBar = () => {
                     </div>
                     <Input type='search' />
                 </div>
-                <div>Login</div>
+                <Button color='warning text-white'>Login</Button>
             </Navbar>
         </>
     )

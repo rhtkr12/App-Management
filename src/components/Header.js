@@ -9,7 +9,7 @@ const Header = () => {
             <NavBar />
             <Container>
                 <Row className={header.header}>
-                    <div>Header</div>
+                    <div>Scroll Bar</div>
                 </Row>
             </Container>
         </>
