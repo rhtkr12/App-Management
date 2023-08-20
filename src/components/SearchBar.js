@@ -1,8 +1,9 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { Search } from 'react-feather'
 import Logo from '../../src/assets/pb-logo.jpg'
 import searchbar from '../styles/searchbar/searchbar.module.css'
-import { Button, Input, Navbar } from 'reactstrap'
+import { Input, Navbar } from 'reactstrap'
 
 const SearchBar = () => {
     return (
@@ -15,7 +16,10 @@ const SearchBar = () => {
                     </div>
                     <Input type='search' />
                 </div>
-                <Button color='warning text-white'>Login</Button>
+                <div className={searchbar.logItems}>
+                    <Link to='/login'>Login</Link>
+                    <Link to='/register'>Register</Link>
+                </div>
             </Navbar>
         </>
     )

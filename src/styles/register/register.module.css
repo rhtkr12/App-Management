@@ -1,0 +1,14 @@
+.register {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.innerForm {
+    width: 50%;
+}
+
+.innerForm form label span {
+    color: red;
+}

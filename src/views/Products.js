@@ -1,6 +1,6 @@
 import React from 'react'
 import products from '../styles/products/products.module.css'
-import { Button, Card, CardBody, CardSubtitle, CardText, CardTitle } from 'reactstrap'
+import { Button, Card, CardBody, CardSubtitle, CardText, CardTitle, Col, Row } from 'reactstrap'
 
 const Products = () => {
   const content = [
@@ -128,31 +128,36 @@ const Products = () => {
   ]
 
   return (
-    <div className={products.product}>
-      {content?.map((item) => (
-        <Card
-        >
-          {item.image}
-          <CardBody>
-            <CardTitle tag="h5">
-              {item.title}
-            </CardTitle>
-            <CardSubtitle
-              className="mb-2 text-muted"
-              tag="h6"
-            >
-              {item.subTitle}
-            </CardSubtitle>
-            <CardText>
-              {item.description}
-            </CardText>
-            <Button>
-              Button
-            </Button>
-          </CardBody>
-        </Card>
-      ))}
-    </div>
+    <>
+      <div className={products.productsBar}>
+        <Col className='col-1'>Filter</Col>
+        <Col className='col-2'>Total Products {content.length}</Col>
+      </div>
+      <div className={products.product}>
+        {content?.map((item, i) => (
+          <Card key={i}  >
+            {item.image}
+            <CardBody>
+              <CardTitle tag="h5">
+                {item.title}
+              </CardTitle>
+              <CardSubtitle
+                className="mb-2 text-muted"
+                tag="h6"
+              >
+                {item.subTitle}
+              </CardSubtitle>
+              <CardText>
+                {item.description}
+              </CardText>
+              <Button>
+                Button
+              </Button>
+            </CardBody>
+          </Card>
+        ))}
+      </div>
+    </>
   )
 }
 

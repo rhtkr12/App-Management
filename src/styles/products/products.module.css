@@ -4,3 +4,14 @@
     grid-template-columns: auto auto auto auto;    
     gap: 10px;
 }
+
+.productsBar{
+    margin-top: 10px;
+    padding: 10px 10px;
+    background-color: rgb(245, 242, 211);
+    color: gray;
+    text-align: end;
+    font-weight: 700;
+    display: flex;
+    justify-content: end;
+}

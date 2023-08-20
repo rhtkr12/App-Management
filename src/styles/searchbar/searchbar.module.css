@@ -18,15 +18,31 @@
     gap: 3px;
     padding: 7px 10px;
     background-color: gray;
-
 }
 
 .findIcon {
     padding: 8.5px 8.5px;
     border-radius: 8px;
-    background-color: rgb(76, 100, 76);
+    background-color: teal;
     display: flex;
     justify-content: center;
     align-items: center;
+}
 
+.logItems {
+    width: fit-content;
+    display: flex;
+    gap: 5px;
+}
+
+.logItems a {
+    background-color: rgb(255, 196, 0);
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.logItems a:hover {
+    background-color: rgb(255, 217, 0);
 }
