@@ -8,101 +8,101 @@ const Products = () => {
     {
       id: '1',
       image: "https://picsum.photos/300/200",
-      title: 'Card title',
+      title: 'Card title - 1',
       subTitle: 'Card subtitle',
       description: "Some quick example text to build on the card title and make up the bulk of the card's content.",
-      price: '$59',
-      discount: ''
+      price: 59,
+      discount: 10
     },
     {
       id: '2',
       image: "https://picsum.photos/300/200",
-      title: 'Card title',
+      title: 'Card title - 2',
       subTitle: 'Card subtitle',
       description: "Some quick example text to build on the card title and make up the bulk of the card's content.",
-      price: '$59',
-      discount: ''
+      price: 59,
+      discount: 10
     },
     {
       id: '3',
       image: "https://picsum.photos/300/200",
-      title: 'Card title',
+      title: 'Card title - 3',
       subTitle: 'Card subtitle',
       description: "Some quick example text to build on the card title and make up the bulk of the card's content.",
-      price: '$59',
-      discount: ''
+      price: 59,
+      discount: 10
     },
     {
       id: '4',
       image: "https://picsum.photos/300/200",
-      title: 'Card title',
+      title: 'Card title - 4',
       subTitle: 'Card subtitle',
       description: "Some quick example text to build on the card title and make up the bulk of the card's content.",
-      price: '$59',
-      discount: ''
+      price: 59,
+      discount: 10
     },
     {
       id: '5',
       image: "https://picsum.photos/300/200",
-      title: 'Card title',
+      title: 'Card title - 5',
       subTitle: 'Card subtitle',
       description: "Some quick example text to build on the card title and make up the bulk of the card's content.",
-      price: '$59',
-      discount: ''
+      price: 59,
+      discount: 10
     },
     {
       id: '6',
       image: "https://picsum.photos/300/200",
-      title: 'Card title',
+      title: 'Card title - 6',
       subTitle: 'Card subtitle',
       description: "Some quick example text to build on the card title and make up the bulk of the card's content.",
-      price: '$59',
-      discount: ''
+      price: 59,
+      discount: 10
     },
     {
       id: '7',
       image: "https://picsum.photos/300/200",
-      title: 'Card title',
+      title: 'Card title - 7',
       subTitle: 'Card subtitle',
       description: "Some quick example text to build on the card title and make up the bulk of the card's content.",
-      price: '$59',
-      discount: ''
+      price: 59,
+      discount: 10
     },
     {
       id: '8',
       image: "https://picsum.photos/300/200",
-      title: 'Card title',
+      title: 'Card title - 8',
       subTitle: 'Card subtitle',
       description: "Some quick example text to build on the card title and make up the bulk of the card's content.",
-      price: '$59',
-      discount: ''
+      price: 59,
+      discount: 10
     },
     {
       id: '9',
       image: "https://picsum.photos/300/200",
-      title: 'Card title',
+      title: 'Card title - 9',
       subTitle: 'Card subtitle',
       description: "Some quick example text to build on the card title and make up the bulk of the card's content.",
-      price: '$59',
-      discount: ''
+      price: 59,
+      discount: 10
     },
     {
       id: '10',
       image: "https://picsum.photos/300/200",
-      title: 'Card title',
+      title: 'Card title - 10',
       subTitle: 'Card subtitle',
       description: "Some quick example text to build on the card title and make up the bulk of the card's content.",
-      price: '$59',
-      discount: ''
+      price: 59,
+      discount: 10
     },
     {
       id: '11',
       image: "https://picsum.photos/300/200",
-      title: 'Card title',
+      title: 'Card title - 11',
       subTitle: 'Card subtitle',
       description: "Some quick example text to build on the card title and make up the bulk of the card's content.",
-      price: '$59',
-      discount: ''
+      price: 59,
+      discount: 10
     },
   ]
 
@@ -114,7 +114,7 @@ const Products = () => {
       </div>
       <div className={products.product}>
         {content?.map((item) => (
-          <Card key={item.id}  >
+          <Card key={item.id} className={products.productCard}>
             <Link to={`/apps/products/product/${item.id}`}>
               <CardImg
                 alt="Image"
@@ -137,11 +137,20 @@ const Products = () => {
                 {item.subTitle}
               </CardSubtitle>
               <CardText>
-                {item.description}
+                {item.description.substring(0, 50)}...
               </CardText>
-              <Button>
-                Button
-              </Button>
+              <CardText>
+                <span>Price ${item.price}</span> - <span>Discount ${item.discount}</span>
+              </CardText>
+              <div>
+                <Button color='warning'>
+                  Buy This
+                </Button> {' '}
+                <Button color='outline-warning'>
+                  Add to Cart
+                </Button>
+              </div>
+
             </CardBody>
           </Card>
         ))}

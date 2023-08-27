@@ -7,7 +7,7 @@ const Header = () => {
     return (
         <>
             <NavBar />
-            <Container>
+            <Container fluid>
                 <Row className={header.header}>
                     <div>Scroll Bar</div>
                 </Row>
