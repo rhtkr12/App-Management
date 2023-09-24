@@ -1,120 +1,26 @@
-import React from 'react'
-import products from '../styles/products/products.module.css'
-import { Button, Card, CardBody, CardImg, CardSubtitle, CardText, CardTitle, Col } from 'reactstrap'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import productsCss from '../styles/products/products.module.css'
+import { Button, Card, CardBody, CardImg, CardSubtitle, CardText, CardTitle, Col } from 'reactstrap'
+import { useGetAllProductsQuery } from '../redux/products/productApi'
 
 const Products = () => {
-  const content = [
-    {
-      id: '1',
-      image: "https://picsum.photos/300/200",
-      title: 'Card title - 1',
-      subTitle: 'Card subtitle',
-      description: "Some quick example text to build on the card title and make up the bulk of the card's content.",
-      price: 59,
-      discount: 10
-    },
-    {
-      id: '2',
-      image: "https://picsum.photos/300/200",
-      title: 'Card title - 2',
-      subTitle: 'Card subtitle',
-      description: "Some quick example text to build on the card title and make up the bulk of the card's content.",
-      price: 59,
-      discount: 10
-    },
-    {
-      id: '3',
-      image: "https://picsum.photos/300/200",
-      title: 'Card title - 3',
-      subTitle: 'Card subtitle',
-      description: "Some quick example text to build on the card title and make up the bulk of the card's content.",
-      price: 59,
-      discount: 10
-    },
-    {
-      id: '4',
-      image: "https://picsum.photos/300/200",
-      title: 'Card title - 4',
-      subTitle: 'Card subtitle',
-      description: "Some quick example text to build on the card title and make up the bulk of the card's content.",
-      price: 59,
-      discount: 10
-    },
-    {
-      id: '5',
-      image: "https://picsum.photos/300/200",
-      title: 'Card title - 5',
-      subTitle: 'Card subtitle',
-      description: "Some quick example text to build on the card title and make up the bulk of the card's content.",
-      price: 59,
-      discount: 10
-    },
-    {
-      id: '6',
-      image: "https://picsum.photos/300/200",
-      title: 'Card title - 6',
-      subTitle: 'Card subtitle',
-      description: "Some quick example text to build on the card title and make up the bulk of the card's content.",
-      price: 59,
-      discount: 10
-    },
-    {
-      id: '7',
-      image: "https://picsum.photos/300/200",
-      title: 'Card title - 7',
-      subTitle: 'Card subtitle',
-      description: "Some quick example text to build on the card title and make up the bulk of the card's content.",
-      price: 59,
-      discount: 10
-    },
-    {
-      id: '8',
-      image: "https://picsum.photos/300/200",
-      title: 'Card title - 8',
-      subTitle: 'Card subtitle',
-      description: "Some quick example text to build on the card title and make up the bulk of the card's content.",
-      price: 59,
-      discount: 10
-    },
-    {
-      id: '9',
-      image: "https://picsum.photos/300/200",
-      title: 'Card title - 9',
-      subTitle: 'Card subtitle',
-      description: "Some quick example text to build on the card title and make up the bulk of the card's content.",
-      price: 59,
-      discount: 10
-    },
-    {
-      id: '10',
-      image: "https://picsum.photos/300/200",
-      title: 'Card title - 10',
-      subTitle: 'Card subtitle',
-      description: "Some quick example text to build on the card title and make up the bulk of the card's content.",
-      price: 59,
-      discount: 10
-    },
-    {
-      id: '11',
-      image: "https://picsum.photos/300/200",
-      title: 'Card title - 11',
-      subTitle: 'Card subtitle',
-      description: "Some quick example text to build on the card title and make up the bulk of the card's content.",
-      price: 59,
-      discount: 10
-    },
-  ]
+  const [products, setProducts] = useState([])
+  const { data, error, isLoading } = useGetAllProductsQuery()
+
+  useEffect(() => {
+    setProducts(data)
+  }, [data])
 
   return (
     <>
-      <div className={products.productsBar}>
+      <div className={productsCss.productsBar}>
         <Col className='col-1'>Filter</Col>
-        <Col className='col-2'>Total Products {content.length}</Col>
+        <Col className='col-2'>Total Products {products && products.length}</Col>
       </div>
-      <div className={products.product}>
-        {content?.map((item) => (
-          <Card key={item.id} className={products.productCard}>
+      <div className={productsCss.product}>
+        {products && products?.map((item) => (
+          <Card key={item.id} className={productsCss.productCard}>
             <Link to={`/apps/products/product/${item.id}`}>
               <CardImg
                 alt="Image"

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import login from '../styles/login/login.module.css'
 import { Link } from 'react-router-dom'
 import { Container, Form, Label, Col, FormGroup, Input, Button } from 'reactstrap'
+import { axiosApi } from '../helper/axios'
 
 const Login = () => {
     const [user, setUser] = useState({
@@ -11,14 +12,26 @@ const Login = () => {
 
     const handleCahnge = (e) => {
         setUser({ ...user, [e.target.name]: e.target.value })
-
     }
-
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        e.target.reset()
-        console.log('Submitted Login', user)
-    }
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        if (!user.email || !user.password) {
+            return console.log("Please fill in all fields.");
+        } else {
+            await axiosApi.local.post('users/login',
+                {
+                    email: user.email,
+                    password: user.password
+                })
+                .then((res) => {
+                    console.log(res.data)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+            e.target.reset();
+        }
+    };
 
     return (
         <Container className='pt-2'>
@@ -29,7 +42,7 @@ const Login = () => {
                     <h4>Login here</h4>
                     <FormGroup>
                         <Label
-                            for="exampleEmail"
+                            for="email"
 
                         >
                             Email<span>*</span>

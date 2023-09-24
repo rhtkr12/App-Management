@@ -1,19 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import register from '../styles/register/register.module.css'
 import { Input, Label, Button, Col, Container, Form, FormGroup, Row } from 'reactstrap';
+import { useAddNewUserMutation } from '../redux/users/usersApi'
 
 const Register = () => {
-    const [users, setUsers] = useState(() => {
-        return JSON.parse(localStorage.getItem('users')) || [];
-    })
+    const [addNewUser] = useAddNewUserMutation()
     const [user, setUser] = useState({
-        firstname: '',
-        lastname: '',
+        firstName: '',
+        lastName: '',
         email: '',
         password: '',
         cPassword: '',
-        check: ''
+        tnc: ''
     })
 
     const handleChange = (e) => {
@@ -22,13 +21,13 @@ const Register = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setUsers([...users, user]);
+        addNewUser(user).then((res) => {
+            console.log(res)
+        }).catch((err) => {
+            console.log(err)
+        })
         e.target.reset();
     }
-
-    useEffect(() => {
-        localStorage.setItem('users', JSON.stringify(users))
-    }, [users])
 
     return (
         <>
@@ -47,7 +46,7 @@ const Register = () => {
                                         </Label>
                                         <Input
                                             id="firstname"
-                                            name="firstname"
+                                            name="firstName"
                                             placeholder="First Name"
                                             type="text"
                                             onChange={handleChange}
@@ -62,7 +61,7 @@ const Register = () => {
                                         </Label>
                                         <Input
                                             id="lastname"
-                                            name="lastname"
+                                            name="lastName"
                                             placeholder="Last Name"
                                             type="text"
                                             onChange={handleChange}
@@ -121,8 +120,8 @@ const Register = () => {
                         </Row>
                         <FormGroup check>
                             <Input
-                                id="check"
-                                name="check"
+                                id="tnc"
+                                name="tnc"
                                 value='true'
                                 type="checkbox"
                                 onChange={handleChange}
@@ -130,7 +129,7 @@ const Register = () => {
                             />
                             <Label
                                 check
-                                for="check"
+                                for="tnc"
                             >
                                 Accept terms & conditions.<span>*</span>
                             </Label>
